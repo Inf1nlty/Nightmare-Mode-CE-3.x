@@ -107,6 +107,8 @@ status.health.NoHit=No Hit
 
 gui.nmTimer.day=Day %d
 gui.nmTimer.night=Night %d
+gui.nmTimer.bloodmoon=§cBM
+gui.nmTimer.eclipse=§6Ec
 gui.menu.noEscape=No Escape
 
 gui.selectworld.buff_squids=Buff Squids

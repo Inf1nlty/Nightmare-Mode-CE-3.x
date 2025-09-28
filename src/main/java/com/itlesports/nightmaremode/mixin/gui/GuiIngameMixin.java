@@ -45,10 +45,29 @@ public class GuiIngameMixin {
                 renderText(textToShow, stringWidth, iScreenX, iScreenY, fontRenderer, activeStatuses);
             }
 
-            textToShow = String.format(period, ((int)Math.ceil((double) Minecraft.getMinecraft().theWorld.getWorldTime() / 24000)) + dawnOffset);
-            stringWidth = fontRenderer.getStringWidth(textToShow);
+            int dayCount = (int)Math.ceil((double) mc.theWorld.getWorldTime() / 24000) + dawnOffset;
+
+            boolean isBloodMoonDay = NMUtils.isVoidWorldLoaded() && NMUtils.getWorldProgress() > 0
+                    && mc.theWorld.getMoonPhase() == 0
+                    && (dayCount % 16 == 9);
+
+            boolean isEclipseDay = NMUtils.isVoidWorldLoaded() && NMUtils.getWorldProgress() > 2
+                    && (dayCount % 8 == 0);
+
             if(NightmareMode.shouldShowDateTimer){
-                renderText(textToShow, stringWidth, iScreenX, iScreenY, fontRenderer, activeStatuses);
+
+                String text = String.format(period, dayCount);
+
+                if(isBloodMoonDay) {
+                    text += I18n.getString("gui.nmTimer.bloodmoon");
+                }
+
+                if(isEclipseDay) {
+                    text += I18n.getString("gui.nmTimer.eclipse");
+                }
+
+                stringWidth = fontRenderer.getStringWidth(text);
+                renderText(text, stringWidth, iScreenX, iScreenY, fontRenderer, activeStatuses);
             }
 
             textToShow = this.getTextForActiveConfig();

@@ -110,6 +110,8 @@ status.health.NoHit=无伤
 
 gui.nmTimer.day=白天 %d
 gui.nmTimer.night=夜晚 %d
+gui.nmTimer.bloodmoon=§c血月
+gui.nmTimer.eclipse=§6日食
 gui.menu.noEscape=无处可逃
 
 gui.selectworld.buff_squids=强化鱿鱼

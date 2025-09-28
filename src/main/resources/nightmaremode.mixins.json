@@ -112,6 +112,7 @@
     "WorldMixin",
     "WorldProviderHellMixin",
     "WorldProviderMixin",
+    "WorldServerMixin",
     "ZombieBreakBarricadeBehaviorHostileMixin",
     "ZombieBreakBarricadeBehaviorMixin",
     "blocks.AestheticOpaqueEarthBlockMixin",
