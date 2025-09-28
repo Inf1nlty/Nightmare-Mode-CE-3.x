@@ -263,8 +263,10 @@ gui.gameover.lategame9=You'll be fine, just take a little break.
 player.stopSleeping=Stop Sleeping
 player.attemptEscapeBloodmoon=<???> Running from the Bloodmoon? Pathetic.
 
+world.skyblock_nether_locked=The Nether can only be unlocked after day 32.
 world.hardmodeBegin=<???> Hardmode has begun.
 world.portal_warning=3 days remain.
+world.bloodmoon_warning=Bloodmoon is approaching.
 
 bosses.wither_summon_sealevel=<???> The Wither must be summoned above sea level.
 bosses.wither_summon_too_high=<???> The Wither cannot be summoned this high. Y coordinate must be under 200.

@@ -3,6 +3,7 @@ package com.itlesports.nightmaremode;
 import btw.community.nightmaremode.NightmareMode;
 import btw.item.BTWItems;
 import com.itlesports.nightmaremode.item.NMItems;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 
 import java.util.*;
@@ -218,5 +219,11 @@ public class NMUtils {
     public static boolean isHoldingBloodSword(EntityLivingBase entity){
         if(entity.getCurrentItemOrArmor(0) == null){return false;}
         return entity.getCurrentItemOrArmor(0).itemID == bloodArmor.get(0);
+    }
+
+    public static boolean isVoidWorldLoaded() {
+        MinecraftServer srv = MinecraftServer.getServer();
+        if (srv == null || srv.worldServers[0] == null) return false;
+        return "voidworld".equals(srv.worldServers[0].getWorldInfo().getGeneratorOptions());
     }
 }

@@ -95,6 +95,27 @@ public abstract class MinecraftServerMixin {
             NightmareMode.sendBloodmoonEclipseToAllPlayers();
         }
 
+        WorldServer world = this.worldServers[0];
+
+        if (NMUtils.isVoidWorldLoaded() && NMUtils.getWorldProgress() > 0) {
+
+            if (world.getWorldTime() % 24000 == 0) {
+
+                if (world.getMoonPhase() == 0 && (dayCount % 16 == 9)) {
+
+                    for (Object obj : world.playerEntities) {
+
+                        if (obj instanceof EntityPlayerMP player) {
+                            ChatMessageComponent text = new ChatMessageComponent();
+                            text.addKey("world.bloodmoon_warning");
+                            text.setColor(EnumChatFormatting.RED);
+                            player.sendChatToPlayer(text);
+                        }
+                    }
+                }
+            }
+        }
+
         if (WorldUtils.gameProgressHasEndDimensionBeenAccessedServerOnly()) {
             NightmareMode.worldState = 3;
         } else if (WorldUtils.gameProgressHasWitherBeenSummonedServerOnly()) {
@@ -154,6 +175,10 @@ public abstract class MinecraftServerMixin {
 
     @Unique private boolean getIsEclipse(World world, int dayCount){
         if(NMUtils.getWorldProgress() <= 2){return false;}
+
+        if (NMUtils.isVoidWorldLoaded()) {
+            return !this.getIsNightFromWorldTime(world) && dayCount % 4 == 0;
+        }
         return !this.getIsNightFromWorldTime(world) && dayCount % 2 == 0;
     }
 }

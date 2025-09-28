@@ -3,6 +3,7 @@ package com.itlesports.nightmaremode.mixin.blocks;
 import btw.community.nightmaremode.NightmareMode;
 import btw.world.util.WorldUtils;
 import btw.world.util.data.BTWWorldData;
+import com.itlesports.nightmaremode.NMUtils;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
 import org.spongepowered.asm.mixin.Mixin;
@@ -18,6 +19,28 @@ public class BlockPortalMixin{
 
     @Redirect(method = "tryToCreatePortal", at = @At(value = "INVOKE", target = "Lbtw/world/util/WorldUtils;gameProgressSetNetherBeenAccessedServerOnly()V", remap = false))
     private void doNothing1(){} // makes sure the nether flag isn't set as soon as the portal is created
+
+    @Inject(method = "tryToCreatePortal", at = @At("HEAD"), cancellable = true)
+    private void blockPortalCreationEarly(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir){
+        if (NMUtils.isVoidWorldLoaded()) {
+            long dayCount = world.getWorldTime() / 24000;
+            if (dayCount < 32) {
+                for (Object obj : world.playerEntities) {
+                    if (obj instanceof EntityPlayer player) {
+                        ChatMessageComponent text1 = new ChatMessageComponent();
+                        text1.addText("<???> ");
+                        text1.addKey("world.skyblock_nether_locked");
+                        text1.setColor(EnumChatFormatting.RED);
+                        player.sendChatToPlayer(text1);
+
+                        player.addPotionEffect(new PotionEffect(Potion.confusion.id, 100, 0));
+                    }
+                }
+                cir.setReturnValue(false);
+                return;
+            }
+        }
+    }
 
     @Inject(method = "tryToCreatePortal", at = @At("TAIL"))
     private void applyPlayerEffects(World world, int x, int y, int z, CallbackInfoReturnable<Boolean> cir){

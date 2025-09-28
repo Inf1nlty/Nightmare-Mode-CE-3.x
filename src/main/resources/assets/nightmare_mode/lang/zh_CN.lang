@@ -266,7 +266,9 @@ gui.gameover.lategame9=你会没事的，休息一下再继续吧。
 player.stopSleeping=起床
 player.attemptEscapeBloodmoon=<???> 试图逃离血月？真是可悲。
 
+world.skyblock_nether_locked=地狱只能在32天后才能解锁
 world.portal_warning=还剩3天。
+world.bloodmoon_warning=血月即将来临
 world.hardmodeBegin=困难模式开始。
 
 bosses.wither_summon_sealevel=<???> 凋灵必须在海平面以上召唤。
