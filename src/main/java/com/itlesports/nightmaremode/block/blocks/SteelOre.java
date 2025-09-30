@@ -29,9 +29,6 @@ public class SteelOre extends OreBlockStaged {
     }
     @Override
     public int getRequiredToolLevelForOre(IBlockAccess blockAccess, int i, int j, int k) {
-        if (NightmareMode.worldState > 1) {
-            return 3;
-        }
         return 4;
     }
     // remove this to enable all 3 steel ore blocks in the creative menu. this only registers the 1st strata block
