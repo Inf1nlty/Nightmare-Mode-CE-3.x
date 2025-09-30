@@ -235,7 +235,7 @@ public abstract class NMInitializer implements AchievementExt {
         EntityVillager.removeCustomTrade(1, TradeProvider.getBuilder().name("nmLibrarian0").profession(1).level(1).buy().item(Item.paper.itemID).itemCount(24, 32).build());
         EntityVillager.removeCustomTrade(1, TradeProvider.getBuilder().name("nmLibrarian0").profession(1).level(2).variants().addTradeVariant(TradeProvider.getBuilder().name("nmlibrarian0").profession(1).level(2).convert().input(TradeItem.fromID(BTWItems.redstoneEye.itemID, 2)).conversionCost(4, 6).output(TradeItem.fromID(BTWBlocks.detectorBlock.blockID)).build()).addTradeVariant(TradeProvider.getBuilder().name("nmlibrarian0").profession(1).level(2).convert().input(TradeItem.fromID(BTWItems.redstoneEye.itemID, 4)).conversionCost(4, 6).output(TradeItem.fromID(BTWBlocks.buddyBlock.blockID)).build()).addTradeVariant(TradeProvider.getBuilder().name("nmlibrarian0").profession(1).level(2).convert().input(TradeItem.fromID(Block.cobblestoneMossy.blockID, 6)).conversionCost(4, 6).output(TradeItem.fromID(BTWBlocks.blockDispenser.blockID)).build()).finishVariants().mandatory().build());
         EntityVillager.removeCustomTrade(1, TradeProvider.getBuilder().name("nmLibrarian0").profession(1).level(5).convert().input(TradeItem.fromID(Item.enderPearl.itemID)).conversionCost(6, 8).output(TradeItem.fromID(Item.eyeOfEnder.itemID)).mandatory().build());
-        EntityVillager.removeCustomTrade(1, TradeProvider.getBuilder().name("nmLibrarian0").profession(1).level(5).arcaneScroll().scrollEnchant(Enchantment.power).secondaryEmeraldCost(16, 24).mandatory().build());
+        EntityVillager.removeCustomTrade(1, TradeProvider.getBuilder().name("nmLibrarian0").profession(1).level(5).arcaneScroll().scrollEnchant(Enchantment.power).secondaryEmeraldCost(48, 64).mandatory().build());
 
         TradeProvider.getBuilder().name("nmlibrarian0").profession(1).level(1).buy().item(NMItems.ironKnittingNeedles.itemID).emeraldCost(2,3).addToTradeList();
         TradeProvider.getBuilder().name("nmlibrarian0").profession(1).level(2).buy().item(Block.bookShelf.blockID).itemCount(1,2).addToTradeList();
@@ -256,13 +256,13 @@ public abstract class NMInitializer implements AchievementExt {
 
 
     private static void addPriestTrades(){
-        EntityVillager.removeCustomTrade(2, TradeProvider.getBuilder().name("nmPriest0").profession(2).level(5).arcaneScroll().scrollEnchant(Enchantment.fortune).secondaryEmeraldCost(24, 32).mandatory().build());
+        EntityVillager.removeCustomTrade(2, TradeProvider.getBuilder().name("btw:sell_fortune_scroll").profession(2).level(5).arcaneScroll().scrollEnchant(Enchantment.fortune).secondaryEmeraldCost(48, 64).mandatory().build());
         EntityVillager.removeLevelUpTrade(2,4);
 
         TradeProvider.getBuilder().name("nmPriest0").profession(2).level(2).buy().item(Item.netherStalkSeeds.itemID).itemCount(4,8).addToTradeList();
         TradeProvider.getBuilder().name("nmPriest0").profession(2).level(3).buy().item(BTWItems.nitre.itemID).itemCount(8,16).addToTradeList();
         TradeProvider.getBuilder().name("nmPriest0").profession(2).level(3).sell().item(Block.enchantmentTable.blockID).emeraldCost(6,10).weight(0.35f).addToTradeList();
-        TradeProvider.getBuilder().name("nmPriest0").profession(2).level(3).convert().input(TradeItem.fromID(Item.paper.itemID)).secondInput(TradeItem.fromID(NMItems.bloodOrb.itemID,32,64)).output(TradeItem.fromIDAndMetadata(BTWItems.arcaneScroll.itemID,getScrollMetadata("fortune"))).weight(0.1f).addToTradeList();
+        TradeProvider.getBuilder().name("nmPriest0").profession(2).level(3).convert().input(TradeItem.fromID(Item.paper.itemID)).secondInput(TradeItem.fromID(NMItems.bloodOrb.itemID,32,64)).output(TradeItem.fromIDAndMetadata(BTWItems.arcaneScroll.itemID,getScrollMetadata("fortune"))).weight(0.5f).addToTradeList();
         TradeProvider.getBuilder().name("nmPriest0").profession(2).level(3).convert().input(TradeItem.fromID(Item.potion.itemID)).secondInput(TradeItem.fromID(Item.emerald.itemID,1,3)).output(TradeItem.fromIDAndMetadata(Item.potion.itemID,16453,2)).addToTradeList();
         TradeProvider.getBuilder().name("nmPriest0").profession(2).level(4).convert().input(TradeItem.fromID(Item.appleGold.itemID)).secondInput(TradeItem.fromID(NMItems.bloodOrb.itemID,12,24)).output(TradeItem.fromIDAndMetadata(Item.appleGold.itemID,1)).mandatory().addToTradeList();
 
@@ -274,7 +274,7 @@ public abstract class NMInitializer implements AchievementExt {
 
 
     private static void addBlacksmithTrades(){
-        EntityVillager.removeCustomTrade(3, TradeProvider.getBuilder().name("nmBlacksmith0").profession(3).level(5).arcaneScroll().scrollEnchant(Enchantment.unbreaking).secondaryEmeraldCost(16, 24).mandatory().build());
+        EntityVillager.removeCustomTrade(3, TradeProvider.getBuilder().name("nmBlacksmith0").profession(3).level(5).arcaneScroll().scrollEnchant(Enchantment.unbreaking).secondaryEmeraldCost(48, 64).mandatory().build());
 
         TradeProvider.getBuilder().name("nmBlacksmith0").profession(3).level(1).buy().item(Item.pickaxeStone.itemID).buySellSingle().addToTradeList();
         TradeProvider.getBuilder().name("nmBlacksmith0").profession(3).level(2).sell().item(NMItems.bandage.itemID).itemCount(2,2).addToTradeList();
@@ -290,7 +290,7 @@ public abstract class NMInitializer implements AchievementExt {
 
 
     private static void addButcherTrades(){
-        EntityVillager.removeCustomTrade(4, TradeProvider.getBuilder().name("nmButcher0").profession(4).level(5).arcaneScroll().scrollEnchant(Enchantment.sharpness).secondaryEmeraldCost(16, 24).mandatory().build());
+        EntityVillager.removeCustomTrade(4, TradeProvider.getBuilder().name("nmButcher0").profession(4).level(5).arcaneScroll().scrollEnchant(Enchantment.sharpness).secondaryEmeraldCost(48, 64).mandatory().build());
 
         TradeProvider.getBuilder().name("nmButcher0").profession(4).level(1).buy().item(Item.leash.itemID).itemCount(6,10).addToTradeList();
         TradeProvider.getBuilder().name("nmButcher0").profession(4).level(2).buy().item(Item.swordIron.itemID).buySellSingle().weight(0.3f).addToTradeList();
