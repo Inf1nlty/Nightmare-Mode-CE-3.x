@@ -47,8 +47,12 @@ public class GuiIngameMixin {
 
             int dayCount = (int)Math.ceil((double) mc.theWorld.getWorldTime() / 24000) + dawnOffset;
 
-            boolean isBloodMoonDay = NightmareMode.isBloodMoon;
-            boolean isEclipseDay = NightmareMode.isEclipse;
+            boolean isBloodMoonDay = NMUtils.getWorldProgress() > 0
+                    && mc.theWorld.getMoonPhase() == 0
+                    && (dayCount % 16 == 9);
+
+            boolean isEclipseDay = NMUtils.getWorldProgress() > 2
+                    && (dayCount % 8 == 0);
 
             if(NightmareMode.shouldShowDateTimer){
 
