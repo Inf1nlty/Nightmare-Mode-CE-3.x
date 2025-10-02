@@ -18,7 +18,7 @@ public class BlockSteelLocker extends BlockContainer {
     public final int chestType;
 
     public BlockSteelLocker(int id, int type) {
-        super(id, BTWBlocks.soulforgedSteelMaterial);
+        super(id, Material.iron);
         this.chestType = type;
         setCreativeTab(CreativeTabs.tabDecorations);
         setHardness(50f);
